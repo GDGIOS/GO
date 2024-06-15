@@ -7,6 +7,26 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+    let nv = document.getElementById("num_vacancies");
+    const vacanciesIntval = setInterval(() => {
+        fetch('https://gdg-ilheus-api.diogocerqueira.dev.br/sign/go/course/vacancies', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                nv.innerHTML = data.vacancies + " Vagas";
+                // O número de vagas chegou ao fim, não há motivo para continuar buscando se já sabemos que não podemos mais receber inscrições, all right? :D
+                if(!data.vacancies) clearInterval(vacanciesIntval);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, 10000);
 
 
     const subscriptionSection = document.getElementById('subscription'),
@@ -52,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => {
                     console.log(error);
                 });
-        });
+        }, 5000);
     }
 
     const showFinish = (viaSubscription = false) => {
