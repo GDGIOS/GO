@@ -9,7 +9,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     let nv = document.getElementById("num_vacancies");
     const vacanciesIntval = setInterval(() => {
-        fetch('https://gdg-ilheus-api.diogocerqueira.dev.br/sign/go/course/vacancies', {
+        fetch('https://gdg-ilheus-api.diogocerqueira.dev.br?action=vacancies', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 600);
 
         const paymentIntval = setInterval(() => {
-            fetch('https://gdg-ilheus-api.diogocerqueira.dev.br/sign/go/course/payment?uuid=' + data.uuid, {
+            fetch('https://gdg-ilheus-api.diogocerqueira.dev.br?action=payment&uuid=' + data.uuid, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formBtn.appendChild(icon);
         formBtn.appendChild(document.createTextNode(' Aguarde...'));
 
-        fetch('https://gdg-ilheus-api.diogocerqueira.dev.br/sign/go/course', {
+        fetch('https://gdg-ilheus-api.diogocerqueira.dev.br?action=sign', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
