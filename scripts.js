@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(error);
             });
     }
+    getVacancies();
     const vacanciesIntval = setInterval(getVacancies, 10000);
 
 
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         paymentSection = document.getElementById('payment'),
         finishSection = document.getElementById('finish');
 
-    const showPayment = (imgQr, payload) => {
+    const showPayment = (imgQr, payload, uuid) => {
         let qrcode = document.getElementById('pix-payment-qrcode'),
             pixPayload = document.getElementById('pix-payload'),
             pixCopy = document.getElementById('pix-copy-msg');
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 600);
 
         const paymentIntval = setInterval(() => {
-            fetch('https://gdg-ilheus-api.diogocerqueira.dev.br?action=payment&uuid=' + data.uuid, {
+            fetch('https://gdg-ilheus-api.diogocerqueira.dev.br?action=payment&uuid=' + uuid, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -195,7 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     throw new Error(data.error);
                 }
                 if (data.signed) showFinish(true);
-                else showPayment(data.qrcode, data.payload);
+                else showPayment(data.qrcode, data.payload, data.uuid);
+                clearInterval(vacanciesIntval);
             })
             .catch(error => {
                 alert.textContent = "Erro ao salvar inscrição: " + (error || "Unknow Error") + " - Tente novamente dentro de alguns minutos.";
