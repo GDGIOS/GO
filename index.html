@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição no Curso de Golang</title>
+    <link rel="icon" type="image/x-icon" href="./Go-Logo_LightBlue.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css?v=1">
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://github.com/nwiry/gdg-go-workshop/assets/42446215/1f2f5abe-9047-4ff7-9fda-e74c61ffcdac"
+                alt="GDG Ilhéus Logo" class="logo gdg">
+            <img src="./Go-Logo_LightBlue.png" alt="Golang Logo" class="logo golang">
+        </div>
+      <div id="subscription" class="show-subscription">
+            <h1>Inscrição no Mini Curso de Introdução a Golang</h1>
+            <p>Esperamos que este mini curso seja uma ótima oportunidade para você aprender os
+                fundamentos e dar os primeiros passos na sua
+                jornada de desenvolvimento na linguagem de programação Go.
+                <br />
+                <br />
+                <b>Data de Realização:</b> (A definir) em Julho de 2024 às 14:00
+                <br><b>Local de Realização:</b> (A definir) em Ilhéus-BA
+                <br><b>Vagas Restantes:</b> <span class="text-danger">20 </span> <span class="text-danger">vagas</span>
+                <br><b>Taxa de Inscrição: </b> <span style="color: yellowgreen;">R$ 10,00</span>
+            </p>
+            <div class="alert alert-danger" style="display: none;"></div>
+            <form action="javascript:void(0);" method="post">
+                <div class="input-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div class="input-group">
+                    <label for="phone">WhatsApp</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <!-- <div class="input-group">
+                    <label for="experience">Experiência com Programação</label>
+                    <select id="experience" name="experience" required>
+                        <option value="beginner">Iniciante</option>
+                        <option value="intermediate">Intermediário</option>
+                        <option value="advanced">Avançado</option>
+                    </select>
+                </div> -->
+                <p><u>Após o envio dos dados, uma chave pix será gerada para confirmar sua inscrição após o
+                        pagamento.</u>
+                    <br />Confirme se todos os dados informados estão corretos, pois utilizaremos eles para entrar em
+                    contato com
+                    você.
+                </p>
+                <button type="submit">Inscrever-se</button>
+            </form>
+        </div> 
+
+        <div id="payment" class="show-payment" style="display: none;">
+            <p>Abra o aplicativo do seu banco em seu telefone e escaneie o
+                código
+                abaixo:
+                <br>
+                Você possui <b>10 minutos</b> para realizar o pagamento do código pix.
+            </p>
+            <center>
+                <img id="pix-payment-qrcode" class=" qr-img"
+                    src="data:image/png;base64,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" />
+            </center>
+            <p>Se tiver algum problema com a leitura do QR code, utilize a Chave
+                Cópia e
+                Cola abaixo:</p>
+
+            <div class="form-group">
+                <input type="text" id="pix-payload" placeholder="Código Pix Copia e Cola" readonly>
+            </div>
+            <p style="color: green;display: none;" id="pix-copy-msg"><em>Copiado!</em></p>
+            <br />
+            <p><b>ATENÇÃO:</b> Após o pagamento, sua inscrição será confirmada automaticamente.</p>
+        </div>
+
+         <div id="finish" class="hide-finish" style="display: none;">
+            <div class="alert alert-success">
+                Sua inscrição foi confirmada com sucesso!
+            </div>
+            <p>Sua jornada para aprender Golang começa agora!</p>
+
+            <p class="confirmation-message">
+                Parabéns por garantir sua vaga no Mini Curso de Introdução a Golang! Estamos muito animados para compartilhar nossos conhecimentos com você. 
+                <br><br>
+                <b>Data do Curso:</b> 05 de Julho de 2024 às 14:30
+                <br>
+                <b>Local: </b> CEPEDI
+                <br>
+                Fique atento ao seu email e WhatsApp para receber mais informações e atualizações sobre o curso.
+                <br><br>
+                Se tiver alguma dúvida, não hesite em entrar em contato conosco. Estamos aqui para ajudar!
+                <br><br>
+                Nos vemos no curso!
+            </p>
+            <button id="add-to-calendar" class="google-calendar-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar" class="calendar-icon">
+
+                Adicionar ao Google Calendar
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
