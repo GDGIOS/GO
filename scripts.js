@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 email: email.value,
                 phone: phone.value
             })
-        }).then((response) => { console.log(response); return response.json() })
+        }).then((response) => { console.log(response.text()); response.json() })
             .then(data => {
                 if (data.error) {
                     throw new Error(data.error);
