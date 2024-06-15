@@ -200,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 clearInterval(vacanciesIntval);
             })
             .catch(error => {
-                console.log(error);
                 alert.textContent = "Erro ao salvar inscrição: " + (error || "Unknow Error") + " - Tente novamente dentro de alguns minutos.";
                 alert.style.display = "block";
                 name.disabled =
