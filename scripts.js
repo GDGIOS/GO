@@ -8,7 +8,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     let nv = document.getElementById("num_vacancies");
-    const vacanciesIntval = setInterval(() => {
+    const getVacancies = () => {
         fetch('https://gdg-ilheus-api.diogocerqueira.dev.br?action=vacancies', {
             method: 'GET',
             headers: {
@@ -21,12 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 nv.innerHTML = data.vacancies + " Vagas";
                 // O número de vagas chegou ao fim, não há motivo para continuar buscando se já sabemos que não podemos mais receber inscrições, all right? :D
-                if(!data.vacancies) clearInterval(vacanciesIntval);
+                if (!data.vacancies) clearInterval(vacanciesIntval);
             })
             .catch(error => {
                 console.log(error);
             });
-    }, 10000);
+    }
+    const vacanciesIntval = setInterval(getVacancies, 10000);
 
 
     const subscriptionSection = document.getElementById('subscription'),
